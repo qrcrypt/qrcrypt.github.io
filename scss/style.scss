@@ -30,3 +30,39 @@ textarea {
   }
 }
 
+// code block
+.ciphertext {
+  display: block;
+  background-color: aliceblue;
+  word-wrap: break-word;
+  padding: 10px;
+  border-radius: 5px;
+
+  &:empty {
+    display: none;
+  }
+}
+
+// copy wrapper
+.copy-wrapper {
+  position: relative;
+
+  > * {
+    z-index: 100;
+
+  }
+
+  .copy-button {
+    z-index: 500;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+  }
+
+  &:hover {
+    .copy-button {
+      display: block;
+    }
+  }
+}
