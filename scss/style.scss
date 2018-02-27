@@ -1,0 +1,32 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+
+// general blocks
+#module-root {
+  padding-top: 40px;
+}
+
+// font awesome icons
+.fa-sticker {
+  filter: invert(60%);
+  position: relative;
+  transform: scale(0.7);
+}
+
+.fa-sticker-2x {
+  @extend .fa-sticker;
+  top: 0.4em;
+  left: -0.5em;
+  margin-right: -0.8em;
+}
+
+// form elements
+textarea {
+  &.height-2x {
+    height: 100px;
+  }
+  &.height-4x {
+    height: 200px;
+  }
+}
+
