@@ -1,6 +1,7 @@
 import appTemplate from '../templates/app.njk';
 import encryptTextTemplate from '../templates/encryptText.njk';
 import qrTemplate from '../templates/qr.njk';
+import qrPrintTemplate from '../templates/qrPrint.njk';
 
 import zxcvbn from 'zxcvbn';
 import pbkdf2 from 'pbkdf2';
@@ -28,6 +29,7 @@ class App
     bindEvents() {
         this.$root.on('keyup change focus blur paste cut', 'input[type="password"].js-zxcvbn', this.displayZxcvbnRating);
         this.$root.on('keyup change focus blur paste cut', '.js-encrypt-text-form input, .js-encrypt-text-form textarea', this.encryptText.bind(this));
+        this.$root.on('click', '.js-print-qr', this.printQr.bind(this));
     }
 
     startEncryptText() {
@@ -72,6 +74,13 @@ class App
         const svg = qrimage.imageSync(text, { ec_level: 'M', type: 'svg' });
 
         this.$qr.html(qrTemplate.render({ svg: svg }));
+    }
+
+    printQr() {
+        const printWindow = window.open('#', '_blank');
+
+        printWindow.document.write(qrPrintTemplate.render({ svg: this.$qr.find('.svg').html() }));
+        printWindow.print();
     }
 
     error(message) {

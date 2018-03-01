@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        .code {
+            text-align: center;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+        .svg {
+            margin: 20px 0;
+        }
+        .name {
+            height: 50px;
+            margin: 0 50px;
+            border: 1px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <div class="name"></div>
+        <div class="svg">
+            {{ svg|safe }}
+        </div>
+        <small>qrcrypt.github.io</small>
+    </div>
+</body>
+</html>
