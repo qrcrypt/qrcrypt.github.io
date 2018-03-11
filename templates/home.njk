@@ -1,0 +1,104 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title text-primary">What's this?</h5>
+        <p class="card-text">
+            This is <code>qrcrypt</code> - online service to encrypt QR codes and text blocks to store them securely (and decrypt afterwards).
+        </p>
+
+        <h5 class="card-title text-primary">What can I do here?</h5>
+        <p class="card-text">
+            You can scan your QR codes with camera, and encrypt / decrypt / print them. You can also do the same with simple texts without QR code. Check the buttons above.
+        </p>
+
+        <h5 class="card-title text-primary">I need technical details!</h5>
+        <p class="card-text">
+            Sure. First, a <code>salt</code> is generated applying <code>rmd160</code> to provided password.
+        </p>
+        <p class="card-text">
+            Then, <code>salt</code> and <code>password</code> are fed to <code>pbkdf2</code> (40 bytes output, sha512, 4096 rounds) to get 40 derived bytes. The bytes are split to 32 byte key and 8 byte nonce.
+        </p>
+        <p class="card-text">
+            Finally, the plaintext is encrypted using <code>salsa20</code> stream cypher and saved as base64 encoded string.
+        </p>
+        <p class="card-text">
+            Qrcrypt uses the following libraries to do this:
+            <ul>
+                <li><a href="https://nodejs.org/api/crypto.html" target="_blank">node.js crypto</a> for rmd160 implementation</li>
+                <li><a href="https://www.npmjs.org/package/pbkdf2" target="_blank">pbkdf2</a></li>
+                <li><a href="https://github.com/thesimj/js-salsa20" target="_blank">Salsa20 javascript implementation</a> by <a href="https://github.com/thesimj" target="_blank">Mykola Bubelich</a></li>
+                <li><a href="https://github.com/beatgammit/base64-js" target="_blank">Base64 JS implementation</a></li>
+            </ul>
+        </p>
+
+        <h5 class="card-title text-primary">How secure it is?</h5>
+        <p class="card-text">
+            As secure as your password is. Basically the only way to crack qrcrypt is brute-force, so... Do use long <i>passphrase</i>, not <i>password</i>. Something like <code>aquickbrownfoxjumpsoverthelazydog</code> is gazillion times more safe than <code>P@ssW0rd1!</code>. Not convinced? Check amazing <a href="https://lowe.github.io/tryzxcvbn/" target="_blank">zxcvbn</a> demo (also, qrcrypt displays zxcvbn rating for each password entered - when you see "centuries", your password should be safe enough).
+        </p>
+        <p class="card-text">
+            Also, using stream cipher (salsa20) as main cipher makes brute-forcing a bit trickier - as qrcrypt can't understand if the data has been decoded correctly.
+        </p>
+
+        <h5 class="card-title text-primary">Any other security advice?</h5>
+        <p class="card-text">
+            Khm, ok. First of all - pick really complicated passwords. Make them hard to guess - using "ahbrokenisthegoldenbowlthespiritflownforever" aif anybody knows that you are a fan of Mr. Poe. If you know some rare language - use it. Do make mistakes (skip "is" or "the" in your passphrase, for example, or replace "broken" with "brohen"), as it makes dictionary attacks unusable.
+        </p>
+        <p class="card-text">
+            Secondly, be paranoid. Don't use qrcrypt in public places. Remember that your camera, keyboard, browser and PC can (and will, if stakes are high) be hacked. Triple-check that you are loading actual version of qrcrypt - the only one legitimate version is placed on <code>qrcrypt.github.io</code> for now.
+        </p>
+        <p class="card-text">
+            Thirdly, if you are encrypting something VERY important (like BTC master key with billion bitcoins), consider buying separate PC that never connects to internet after downloading qrcrypt page.
+        </p>
+        <p class="card-text">
+            Finally, you can always encrypt your data multiple times with different passwords. Just remember - no warranty.j
+        </p>
+
+        <h5 class="card-title text-primary">FAQ / problems</h5>
+        <p class="card-text">
+            <dl>
+                <dt>I think I found a bug!</dt>
+                <dd>Please go to <a href="https://github.com/qrcrypt/qrcrypt.github.io/issues" target="_blank">github issues</a> and explain everything as precisely as possible.</dd>
+
+                <dt>I see weird characters instead of decrypted text.</dt>
+                <dd>Your password is wrong. No, it is really wrong and there's nothing I can do about it.</dd>
+
+                <dt>I lost my password. Can you help me to recover my data?</dt>
+                <dd>No.</dd>
+
+                <dt>I found printed QR code mentioning this site. Can you decrypt it?</dt>
+                <dd>No.</dd>
+
+                <dt>I HAVE LOST EVERYTHING BECAUSE OF BUG IN YOUR SITE! YOU SHOULD PAY ME!</dt>
+                <dd>No warranty of any kind is provided, sorry.</dd>
+            </dl>
+        </p>
+
+        <h5 class="card-title text-primary">Any plans for mobile application?</h5>
+        <p class="card-text">
+            No. You can basically buy a separate computer, save the qrcrypt page once and use it without connection to internet in a completely secure way. Mobile phones are much easier to crack, tamper with, or infect with a keylogger / virus.
+        </p>
+
+        <h5 class="card-title text-primary">Awesome! How can I thank you?</h5>
+        <p class="card-text">
+            Donation addresses are available below.
+        </p>
+    </div>
+
+
+
+
+
+    {#<div class="card-header">What's this?</div>#}
+    {#<div class="card-body">#}
+        {#<p class="card-text">#}
+            {##}
+        {#</p>#}
+        {##}
+        {#<h5 class="card-title">!</h5>#}
+        {#<h5 class="card-title">How secure it is?</h5>#}
+        {#<h5 class="card-title">Any other advice on security?</h5>#}
+        {#<h5 class="card-title"></h5>#}
+        {##}
+
+        {#<h5 class="card-title"></h5>#}
+    {#</div>#}
+</div>

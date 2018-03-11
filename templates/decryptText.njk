@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-6">
+        <form class="js-decrypt-text-form">
+            <div class="form-group">
+                <label for="plaintext">Encrypted text</label>
+                <textarea class="form-control height-2x" id="ciphertext"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Your password">
+            </div>
+        </form>
+    </div>
+    <div class="col-6">
+        <div class="alert alert-danger" id="error">Error</div>
+        <div class="form-group">
+            <label for="ciphertext">Decrypted text</label>
+            <div class="copy-wrapper">
+                <div class="js-copy copy-button btn btn-sm btn-dark">copy</div>
+                <code id="plaintext" class="ciphertext"></code>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+</div>

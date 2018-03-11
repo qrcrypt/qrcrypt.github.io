@@ -33,5 +33,8 @@ Encore
     .addLoader({ test: /\.njk$/, loader: 'nunjucks-loader' })
 ;
 
-// export the final configuration
-module.exports = Encore.getWebpackConfig();
+let webpackConfig = Encore.getWebpackConfig();
+
+webpackConfig.node = { fs: 'empty' };
+
+module.exports = webpackConfig;

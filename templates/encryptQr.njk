@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-6">
-        <form class="js-encrypt-text-form">
+        <form class="js-encrypt-qr-form">
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control js-zxcvbn" id="password" placeholder="Your password">
@@ -11,10 +11,7 @@
                 <input type="password" class="form-control" id="password-confirm" placeholder="Password confirmation" data-password-confirmation="password">
                 <small></small>
             </div>
-            <div class="form-group">
-                <label for="plaintext">Your plaintext</label>
-                <textarea class="form-control height-2x" id="plaintext"></textarea>
-            </div>
+            {% include './scanner.njk' %}
         </form>
     </div>
     <div class="col-6">
